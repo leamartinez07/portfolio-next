@@ -207,7 +207,7 @@ export default function Hero() {
       boxSizing: "border-box",
     }}>
       {/* ── LEFT COLUMN ── */}
-      <div style={{ display: "flex", flexDirection: "column", minWidth: 0, overflow: "hidden", height: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "column", minWidth: 0, overflow: "visible", height: "100%" }}>
         <p className="eyebrow" style={{ alignSelf: "flex-start", flexShrink: 0 }}>
           {lang === "es" ? "Diseño y Desarrollo Web" : "Design & Web Development"}
         </p>
@@ -225,7 +225,6 @@ export default function Hero() {
               fontSize: "clamp(2.5rem, 7.8vw, 7rem)",
               letterSpacing: "-0.03em",
               textTransform: "uppercase",
-              whiteSpace: "nowrap",
             }}>Leandro</span>
             <span className="gradient-text" style={{
               display: "block",
@@ -234,7 +233,6 @@ export default function Hero() {
               fontSize: "clamp(2.5rem, 7.8vw, 7rem)",
               letterSpacing: "-0.03em",
               textTransform: "uppercase",
-              whiteSpace: "nowrap",
             }}>Martinez</span>
           </motion.h1>
         </div>
