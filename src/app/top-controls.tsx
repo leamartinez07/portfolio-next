@@ -1,6 +1,6 @@
 "use client";
 
-import { Languages, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useLang } from "./providers";
 
@@ -10,15 +10,15 @@ export default function TopControls() {
 
   return (
     <div className="flex items-center gap-2">
-      {/* Idioma */}
+      {/* Idioma — solo texto, sin ícono */}
       <button
         type="button"
         aria-label="Cambiar idioma"
         title={lang === "es" ? "Switch to English" : "Cambiar a Español"}
         onClick={() => setLang(lang === "es" ? "en" : "es")}
         className="btn btn-ghost"
+        style={{ color: "var(--accent)" }}
       >
-        <Languages className="h-4 w-4" />
         <span className="font-medium">{lang.toUpperCase()}</span>
       </button>
 

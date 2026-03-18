@@ -24,7 +24,7 @@ export function ClientMounted({ children }: { children: ReactNode }) {
 export default function Providers({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("es");
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <LangContext.Provider value={{ lang, setLang }}>
         <ClientMounted>{children}</ClientMounted>
       </LangContext.Provider>
