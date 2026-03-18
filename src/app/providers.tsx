@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeProvider, useTheme } from "next-themes";
+import { ThemeProvider } from "next-themes";
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
 type Lang = "es" | "en";
