@@ -5,6 +5,16 @@ import { useLang } from "@/app/providers";
 import { MapPin, Mail } from "lucide-react";
 import { FaWhatsapp, FaGithub, FaLinkedin } from "react-icons/fa";
 
+function getAge(birthDate: Date): number {
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+  return age;
+}
+
+const BIRTH_DATE = new Date(2004, 1, 16); // 16 de febrero de 2004
+
 const contactLinks = [
   { label: "Email",    href: "mailto:leaamartinez7@gmail.com",                         icon: "mail"     as const },
   { label: "WhatsApp", href: "https://wa.me/542622649327",                             icon: "whatsapp" as const },
@@ -135,7 +145,7 @@ export default function Hero() {
 
           <div style={{ display: "flex", width: "100%", paddingTop: "0.5rem", paddingBottom: "0.5rem" }}>
             {[
-              { val: "22",  label: lang === "es" ? "Edad"   : "Age"     },
+              { val: String(getAge(BIRTH_DATE)), label: lang === "es" ? "Edad" : "Age" },
               { val: "B2",  label: lang === "es" ? "Inglés" : "English" },
               { val: "Jr.", label: lang === "es" ? "Nivel"  : "Level"   },
             ].map((item, i) => (
@@ -288,7 +298,7 @@ export default function Hero() {
             paddingBottom: "0.5rem",
           }}>
             {[
-              { val: "22",  label: lang === "es" ? "Edad"   : "Age"     },
+              { val: String(getAge(BIRTH_DATE)), label: lang === "es" ? "Edad" : "Age" },
               { val: "B2",  label: lang === "es" ? "Inglés" : "English" },
               { val: "Jr.", label: lang === "es" ? "Nivel"  : "Level"   },
             ].map((item, i) => (
