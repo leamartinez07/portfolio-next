@@ -1,4 +1,4 @@
-export type ProjectKind = "image" | "pdf" | "design";
+export type ProjectKind = "image" | "pdf" | "design" | "web";
 export type ProjectIcon = "zap" | "users" | "bot";
 
 export type Project = {
@@ -13,10 +13,28 @@ export type Project = {
   tags: string[];
   kind: ProjectKind;
   src: string;
+  url?: string;
   thumb?: string;
+  preview?: string; // full-size screenshot for detail page
 };
 
 export const projects: Project[] = [
+  {
+    slug: "nexus-agency",
+    title_es: "Landing Page — Nexus Agency",
+    title_en: "Landing Page — Nexus Agency",
+    desc_es: "Landing page completa para una agencia de marketing digital. Incluye navegación fija con scroll suave, secciones de servicios, proceso de trabajo con timeline animado, preguntas frecuentes con acordeón, formulario de contacto y diseño responsive. Construida con WordPress, PHP, CSS3 y JavaScript vanilla, con optimizaciones de SEO (Schema.org, Open Graph) y accesibilidad WCAG 2.1.",
+    desc_en: "Full landing page for a digital marketing agency. Features fixed navigation with smooth scroll, services section, animated timeline process, FAQ accordion, contact form, and responsive design. Built with WordPress, PHP, CSS3 and vanilla JavaScript, with SEO optimizations (Schema.org, Open Graph) and WCAG 2.1 accessibility.",
+    category_es: "Web · Diseño",
+    category_en: "Web · Design",
+    icon: "zap",
+    tags: ["WordPress", "PHP", "CSS3", "JavaScript", "SEO", "WCAG 2.1"],
+    kind: "web",
+    src: "nexus-agency.html",
+    url: "https://nexus-agency.page.gd/nexus-agency/",
+    thumb: "/ScreenshotWPNexusShort.png",
+    preview: "/ScreenshotWPNexus.png",
+  },
   {
     slug: "landing-tailwind",
     title_es: "Plataforma de Automatización de Procesos",

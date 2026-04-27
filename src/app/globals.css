@@ -328,11 +328,11 @@ body.themed-bg { background: var(--bg); color: var(--text); }
   overflow: hidden;
   background: var(--panel);
   border: 1px solid var(--panel-border);
-  border-radius: 14px;
-  padding: 28px 24px;
+  border-radius: 18px / 14px;
+  padding: clamp(22px, 3vw, 30px) clamp(18px, 2.6vw, 26px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: clamp(0.8rem, 1.4vw, 1.05rem);
   min-height: clamp(260px, 32vh, 400px);
   text-decoration: none;
   cursor: pointer;
@@ -392,25 +392,28 @@ body.themed-bg { background: var(--bg); color: var(--text); }
   line-height: 1.3;
 }
 .proj-desc {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.72;
   flex: 1;
+  max-width: 62ch;
 }
 .proj-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 8px;
+  align-items: center;
 }
 .proj-tag {
   font-size: 0.72rem;
   background: rgba(124,58,237,0.10);
   border: 1px solid rgba(124,58,237,0.22);
   color: var(--accent);
-  border-radius: 5px;
-  padding: 3px 8px;
+  border-radius: 7px;
+  padding: 5px 10px;
   letter-spacing: 0.02em;
   display: inline-block;
+  line-height: 1;
   transition: background 0.15s, border-color 0.15s;
 }
 .proj-card:hover .proj-tag {
@@ -459,7 +462,7 @@ body.themed-bg { background: var(--bg); color: var(--text); }
   .proj-card {
     padding: 16px 14px;
     min-height: 0;
-    gap: 7px;
+    gap: 8px;
     border-radius: 11px;
   }
   .proj-icon-wrap {
@@ -477,11 +480,11 @@ body.themed-bg { background: var(--bg); color: var(--text); }
     font-size: 0.82rem;
   }
   .proj-tags {
-    gap: 4px;
+    gap: 6px;
   }
   .proj-tag {
     font-size: 0.68rem;
-    padding: 3px 7px;
+    padding: 4px 8px;
   }
 }
 :root .coming-soon-text {
@@ -572,6 +575,105 @@ body.themed-bg { background: var(--bg); color: var(--text); }
   transition: opacity 0.2s;
 }
 .btn-accent:hover { opacity: .88; }
+
+.project-action-btn,
+.project-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition:
+    box-shadow 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.project-action-btn {
+  padding: 8px 18px;
+  font-family: var(--font-syne, 'Arial Black', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 80%, black 20%);
+  border-radius: 10px;
+  min-height: 44px;
+}
+.project-action-btn:hover {
+  background: color-mix(in srgb, var(--accent) 92%, black 8%);
+  border-color: color-mix(in srgb, var(--accent) 74%, black 26%);
+}
+
+.project-back-link {
+  padding: 9px 16px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  background: color-mix(in srgb, var(--chip) 76%, transparent);
+  border: 1px solid var(--chip-border);
+  min-height: 42px;
+  border-radius: 999px;
+}
+.project-back-link:hover {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 38%, transparent);
+  background: color-mix(in srgb, var(--chip) 92%, var(--accent-subtle));
+}
+
+.project-back-link__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  background: transparent;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.dark .project-back-link {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(192,132,252,0.16);
+}
+.dark .project-back-link:hover {
+  background: rgba(192,132,252,0.08);
+  border-color: rgba(192,132,252,0.28);
+  color: var(--lilac);
+}
+
+.project-preview-shell {
+  background: color-mix(in srgb, var(--chip) 76%, transparent);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.project-preview-frame {
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--chip) 76%, transparent);
+}
+
+.project-preview-toolbar {
+  background: color-mix(in srgb, var(--chip) 76%, transparent);
+}
+
+.dark .project-preview-shell {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(192,132,252,0.16);
+}
+
+.dark .project-preview-frame {
+  border-color: rgba(192,132,252,0.16);
+  background: rgba(255,255,255,0.04);
+}
+
+.dark .project-preview-toolbar {
+  background: rgba(255,255,255,0.04);
+}
 
 /* ═══════════════════════════════════════
    INPUTS
