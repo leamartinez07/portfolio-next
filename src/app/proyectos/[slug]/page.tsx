@@ -1,8 +1,42 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import ProjectDetailView from "@/components/ProjectDetailView";
 import { projects } from "@/data/projects";
+
+function buildWebPreviewHtml(html: string, projectUrl?: string) {
+  if (!projectUrl) return html;
+
+  const safeUrl = projectUrl.replace(/"/g, "&quot;");
+  const baseTag = `<base href="${safeUrl}" target="_blank">`;
+  const buttonRedirectScript = `
+  <script>
+    (() => {
+      const projectUrl = ${JSON.stringify(projectUrl)};
+      const openProject = () => window.open(projectUrl, "_blank", "noopener,noreferrer");
+
+      document.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const button = target.closest("button");
+        if (!button) return;
+
+        event.preventDefault();
+        openProject();
+      }, true);
+    })();
+  </script>`;
+
+  const htmlWithBase = html.includes("<head>")
+    ? html.replace("<head>", `<head>\n  ${baseTag}`)
+    : `${baseTag}${html}`;
+
+  return htmlWithBase.includes("</body>")
+    ? htmlWithBase.replace("</body>", `${buttonRedirectScript}\n</body>`)
+    : `${htmlWithBase}${buttonRedirectScript}`;
+}
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -27,46 +61,13 @@ export default async function ProjectDetail(
   const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
 
-  return (
-    <main className="space-y-5">
-      <h1 className="text-2xl font-bold tracking-tight">{project.title_es}</h1>
-      <p className="muted">{project.desc_es}</p>
+  const webPreviewHtml =
+    project.kind === "web"
+      ? buildWebPreviewHtml(
+          await readFile(path.join(process.cwd(), "public", project.src), "utf8"),
+          project.url
+        )
+      : null;
 
-      <div className="card p-3">
-        {project.kind === "image" && (
-          <Image
-            src={project.src}
-            alt={project.title_es}
-            width={1280}
-            height={720}
-            className="w-full h-auto rounded-xl"
-            priority
-          />
-        )}
-
-        {project.kind === "pdf" && (
-          <iframe
-            src={project.src}
-            className="w-full h-[75vh] rounded-xl"
-            title={project.title_es}
-          />
-        )}
-
-        {project.kind === "design" && (
-          <div className="p-6 text-sm space-y-3">
-            <p className="muted">
-              Este es un archivo de Adobe Illustrator. No puede previsualizarse en el navegador.
-            </p>
-            <a href={project.src} download className="btn btn-primary">
-              Descargar archivo
-            </a>
-          </div>
-        )}
-      </div>
-
-      <Link href="/proyectos" className="btn btn-ghost text-sm w-fit">
-        ← Volver a proyectos
-      </Link>
-    </main>
-  );
+  return <ProjectDetailView project={project} webPreviewHtml={webPreviewHtml} />;
 }
