@@ -5,7 +5,7 @@ import { FaWhatsapp, FaGithub, FaLinkedin } from "react-icons/fa";
 const links = [
   { label: "Email",    href: "mailto:leaamartinez7@gmail.com",                         icon: "mail"     as const },
   { label: "WhatsApp", href: "https://wa.me/542622649327",                             icon: "whatsapp" as const },
-  { label: "GitHub",   href: "https://github.com/leamartinez7",                        icon: "github"   as const },
+  { label: "GitHub",   href: "https://github.com/leamartinez07",                       icon: "github"   as const },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/leandro-martinez-0a7b46224", icon: "linkedin" as const },
 ];
 
