@@ -6,6 +6,7 @@ import Nav from "./nav";
 import TopControls from "./top-controls";
 import MobileNav from "./mobile-nav";
 import FooterLinks from "@/components/FooterLinks";
+import HeroBackground from "@/components/HeroBackground";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es-AR" suppressHydrationWarning>
     <body className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} ${barlow.variable} antialiased min-h-dvh themed-bg`}>
+      <HeroBackground />
       <div className="bg-canvas" aria-hidden />
       <div className="bg-noise" aria-hidden />
       <Providers>

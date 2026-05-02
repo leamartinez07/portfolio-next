@@ -82,9 +82,10 @@ export default function Hero() {
         padding: "1.5rem 1.25rem 2rem",
         boxSizing: "border-box",
         overflow: "hidden",
+        position: "relative",
       }}>
         {/* ── Top: eyebrow + name + badge ── */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem", width: "100%" }}>
+        <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem", width: "100%", position: "relative", zIndex: 1 }}>
           <p className="eyebrow" style={{ justifyContent: "center", alignSelf: "center" }}>
             {lang === "es" ? "Diseño y Desarrollo Web" : "Design & Web Development"}
           </p>
@@ -124,7 +125,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}
+          style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem", position: "relative", zIndex: 1 }}
         >
           <p style={{
             fontFamily: "var(--font-syne, 'Arial Black', sans-serif)",
@@ -215,9 +216,10 @@ export default function Hero() {
       paddingRight: "clamp(1.75rem, 3.2vw, 3.2rem)",
       overflow: "hidden",
       boxSizing: "border-box",
+      position: "relative",
     }}>
       {/* ── LEFT COLUMN ── */}
-      <div style={{ display: "flex", flexDirection: "column", minWidth: 0, overflow: "hidden", height: "100%" }}>
+      <div style={{ display: "flex", flexDirection: "column", minWidth: 0, overflow: "hidden", height: "100%", position: "relative", zIndex: 1 }}>
         <p className="eyebrow" style={{ alignSelf: "flex-start", flexShrink: 0 }}>
           {lang === "es" ? "Diseño y Desarrollo Web" : "Design & Web Development"}
         </p>
@@ -270,6 +272,8 @@ export default function Hero() {
           minWidth: 0,
           overflow: "visible",
           height: "100%",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.9rem", minWidth: 0 }}>

@@ -93,7 +93,12 @@
       line-height: 1.04; letter-spacing: -.015em; color: var(--ink);
       margin-bottom: 1.3rem;
     }
-    h1 em { font-style: italic; color: var(--forest); }
+    h1 em {
+      font-style: italic;
+      color: var(--forest);
+      -webkit-text-stroke: 0.45px var(--forest);
+      text-shadow: 0 0 0.5px var(--forest);
+    }
 
     .hero-sub {
       font-size: 1rem; font-weight: 300; color: var(--muted);
@@ -298,7 +303,7 @@
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2rem, 3vw, 2.7rem); line-height: 1.1; letter-spacing: -.01em; color: var(--ink);
     }
-    h2.d em { font-style: italic; color: var(--forest); }
+    h2.d em { font-style: italic; color: var(--forest); -webkit-text-stroke: 0.45px currentColor; text-shadow: 0 0 0.5px currentColor; }
 
     /* ── WHY ── */
     .why { border-bottom: 1px solid var(--border); }
@@ -422,11 +427,14 @@
     .plan { background: var(--white); padding: 2.1rem; display: flex; flex-direction: column; }
     .plan.feat { background: var(--forest); }
     .plan-badge {
-      display: inline-block; margin-bottom: .9rem;
-      background: var(--gold-bg); color: var(--gold);
-      border: 1px solid var(--gold-bd);
-      font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em;
-      padding: .2rem .6rem; border-radius: 4px;
+      display: inline-block; align-self: flex-start; margin-bottom: .9rem;
+      background: #f5c842; color: #7a5800;
+      border: 1px solid #e0b020;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: .72rem; letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .7rem; border-radius: 4px;
     }
     .plan-name { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: var(--muted); margin-bottom: 1rem; }
     .plan.feat .plan-name { color: rgba(255,255,255,.38); }
