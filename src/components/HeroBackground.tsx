@@ -40,8 +40,9 @@ export default function HeroBackground() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D | null;
     if (!ctx) return;
+    const gfx = ctx;
 
     let animId: number;
     let blobs: Blob[] = [];
@@ -88,7 +89,7 @@ export default function HeroBackground() {
       const dt = Math.min(now - last, 50);
       last = now;
       const W = canvas!.width, H = canvas!.height;
-      ctx.clearRect(0, 0, W, H);
+      gfx.clearRect(0, 0, W, H);
 
       for (const b of blobs) {
         b.x += b.vx * (dt / 16);
@@ -105,17 +106,17 @@ export default function HeroBackground() {
         const a = b.alpha * (0.80 + 0.20 * Math.sin(b.phase));
 
         /* Very soft radial gradient — bright core, long feathered edge */
-        const gr = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.radius);
+        const gr = gfx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.radius);
         gr.addColorStop(0,    `hsla(${b.h},${b.s}%,${b.l}%,${a})`);
         gr.addColorStop(0.20, `hsla(${b.h},${b.s}%,${b.l}%,${a * 0.60})`);
         gr.addColorStop(0.50, `hsla(${b.h},${b.s}%,${b.l}%,${a * 0.22})`);
         gr.addColorStop(0.80, `hsla(${b.h},${b.s}%,${b.l}%,${a * 0.05})`);
         gr.addColorStop(1,    `hsla(${b.h},${b.s}%,${b.l}%,0)`);
 
-        ctx.fillStyle = gr;
-        ctx.beginPath();
-        ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
-        ctx.fill();
+        gfx.fillStyle = gr;
+        gfx.beginPath();
+        gfx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
+        gfx.fill();
       }
 
       animId = requestAnimationFrame(loop);
