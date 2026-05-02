@@ -10,9 +10,9 @@ import { useTheme } from "next-themes";
 
 // 3 blobs — deep purple · indigo · violet — coherent palette, no red
 const BLOB_DEFS_DARK = [
-  { h: 262, s: 75, l: 38, a: 0.18 },   // deep purple  — left
-  { h: 225, s: 82, l: 42, a: 0.15 },   // indigo-blue  — right
-  { h: 285, s: 65, l: 36, a: 0.14 },   // violet       — bottom-center
+  { h: 262, s: 75, l: 38, a: 0.24 },   // deep purple  — left
+  { h: 225, s: 82, l: 42, a: 0.20 },   // indigo-blue  — right
+  { h: 285, s: 65, l: 36, a: 0.19 },   // violet       — bottom-center
 ];
 
 const BLOB_DEFS_LIGHT = [
