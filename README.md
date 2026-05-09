@@ -1,6 +1,8 @@
 
 # Portfolio de Leandro Martinez
 
+> Portfolio project by [Leandro Martinez](https://leandromartinez.vercel.app) · [GitHub](https://github.com/leamartinez07)
+
 Stack: Next.js 15 + TypeScript + Tailwind.
 
 ## Desarrollo
