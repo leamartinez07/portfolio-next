@@ -1,4 +1,4 @@
-export type ProjectKind = "image" | "pdf" | "design" | "web";
+export type ProjectKind = "image" | "pdf" | "design" | "web" | "web-live";
 export type ProjectIcon = "zap" | "users" | "bot";
 
 export type Project = {
@@ -14,6 +14,7 @@ export type Project = {
   kind: ProjectKind;
   src: string;
   url?: string;
+  github?: string;
   thumb?: string;
   preview?: string; // full-size screenshot for detail page
 };
@@ -33,7 +34,7 @@ export const projects: Project[] = [
     src: "/proyectos/callm-preview.png",
     thumb: "/proyectos/callm-thumb.png",
     preview: "/proyectos/callm-preview.png",
-    url: "https://github.com/leamartinez07/callm",
+    github: "https://github.com/leamartinez07/callm",
   },
   {
     slug: "taskflow-api",
@@ -45,11 +46,12 @@ export const projects: Project[] = [
     category_en: "Backend · REST API",
     icon: "zap",
     tags: ["Next.js 15", "TypeScript", "Supabase", "PostgreSQL", "JWT", "Zod", "Vercel"],
-    kind: "image",
+    kind: "web-live",
     src: "/proyectos/taskflow-api-preview.png",
     thumb: "/proyectos/taskflow-api-thumb.png",
     preview: "/proyectos/taskflow-api-preview.png",
-    url: "https://github.com/leamartinez07/taskflow-api",
+    url: "https://taskflow-api-pied.vercel.app",
+    github: "https://github.com/leamartinez07/taskflow-api",
   },
   {
     slug: "nexus-agency",
