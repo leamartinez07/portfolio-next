@@ -1,4 +1,4 @@
-export type ProjectKind = "image" | "pdf" | "design" | "web";
+export type ProjectKind = "image" | "pdf" | "design" | "web" | "web-live";
 export type ProjectIcon = "zap" | "users" | "bot";
 
 export type Project = {
@@ -16,6 +16,7 @@ export type Project = {
   url?: string;
   thumb?: string;
   preview?: string; // full-size screenshot for detail page
+  github?: string;
 };
 
 export const projects: Project[] = [
@@ -76,5 +77,37 @@ export const projects: Project[] = [
     kind: "design",
     src: "/proyectos/branding.ai",
     thumb: "/proyectos/branding-thumb.jpg",
+  },
+  {
+    slug: "callm",
+    title_es: "callm — App de Chat en Tiempo Real",
+    title_en: "callm — Real-Time Chat App",
+    desc_es: "Aplicación de mensajería en tiempo real con salas de chat, mensajes directos y sistema de amigos. Construida con Next.js, MongoDB, Pusher y autenticación JWT + Google OAuth.",
+    desc_en: "Real-time messaging app with chat rooms, direct messages, and a friends system. Built with Next.js, MongoDB, Pusher, and JWT + Google OAuth authentication.",
+    category_es: "Full Stack · Tiempo Real",
+    category_en: "Full Stack · Real Time",
+    icon: "users",
+    tags: ["Next.js", "MongoDB", "Pusher", "TypeScript", "JWT"],
+    kind: "web-live",
+    src: "",
+    url: "https://callm-ten.vercel.app",
+    github: "https://github.com/leamartinez07/callm",
+    thumb: "/proyectos/callm-thumb.jpg",
+  },
+  {
+    slug: "taskflow-api",
+    title_es: "TaskFlow API — Gestión de Proyectos",
+    title_en: "TaskFlow API — Project Management",
+    desc_es: "API REST documentada para gestión de proyectos y tareas. Incluye autenticación JWT, autorización por roles, validación con Zod, almacenamiento en Supabase y documentación interactiva.",
+    desc_en: "Documented REST API for project and task management. Features JWT authentication, role-based authorization, Zod validation, Supabase storage, and built-in interactive documentation.",
+    category_es: "Back End · API",
+    category_en: "Back End · API",
+    icon: "zap",
+    tags: ["Next.js", "TypeScript", "Supabase", "JWT", "Zod", "REST API"],
+    kind: "web-live",
+    src: "",
+    url: "https://taskflow-api-pied.vercel.app",
+    github: "https://github.com/leamartinez07/taskflow-api",
+    thumb: "/proyectos/taskflow-thumb.jpg",
   },
 ];
