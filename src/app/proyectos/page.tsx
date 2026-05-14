@@ -21,7 +21,7 @@ const item = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 };
 
-const LIVE_COUNT = 1;
+const LIVE_COUNT = 3;
 
 const rowBase = {
   background: "var(--panel)",

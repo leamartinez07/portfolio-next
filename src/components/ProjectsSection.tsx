@@ -21,8 +21,8 @@ const item = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } },
 };
 
-// First project is live; show 3 total slots
-const LIVE_COUNT = 1;
+// First N projects are live (clickable); show TOTAL_SLOTS cards on home page
+const LIVE_COUNT = 3;
 const TOTAL_SLOTS = 3;
 
 const badgeStyle = {
