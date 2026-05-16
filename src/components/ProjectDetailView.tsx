@@ -170,6 +170,8 @@ export default function ProjectDetailView({
                   src={project.url}
                   style={{ width: "100%", height: "75vh", border: 0, display: "block" }}
                   title={title}
+                  allow="clipboard-write; clipboard-read"
+                  loading="eager"
                 />
               </div>
             </div>
